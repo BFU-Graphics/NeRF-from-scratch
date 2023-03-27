@@ -252,14 +252,14 @@ class NeRFSystem(LightningModule):
 
         return logs
 
-    def on_validation_epoch_end(self, outputs):
-        psnrs = torch.stack([x['psnr'] for x in outputs])
-        mean_psnr = psnrs.mean()
-        self.log('test/psnr', mean_psnr, True)
-
-        ssims = torch.stack([x['ssim'] for x in outputs])
-        mean_ssim = ssims.mean()
-        self.log('test/ssim', mean_ssim)
+    # def on_validation_epoch_end(self, outputs):
+    #     psnrs = torch.stack([x['psnr'] for x in outputs])
+    #     mean_psnr = psnrs.mean()
+    #     self.log('test/psnr', mean_psnr, True)
+    #
+    #     ssims = torch.stack([x['ssim'] for x in outputs])
+    #     mean_ssim = ssims.mean()
+    #     self.log('test/ssim', mean_ssim)
 
 
 def taichi_init(args):
